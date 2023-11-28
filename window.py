@@ -10,7 +10,7 @@ from threading import Thread
 nltk.download('punkt')
 
 size = 20
-size_s = 18
+size_s = 17
 res_size = 15
 
 frame_1_color = "#ffffff"
