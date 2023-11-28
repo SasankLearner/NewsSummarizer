@@ -10,36 +10,38 @@ from threading import Thread
 nltk.download('punkt')
 
 size = 20
-size_s = 17
+size_s = 18
 res_size = 15
 
-frame_1_color = "#ffffff"
+frame_1_color = "#222222"
 frame_2_color = "#222222"
 
-url_label_color = "#555555"
-url_textbox_color = "#222222"
-submit_btn_color = "#222222"
+url_label_color = "lime green"
+url_textbox_color = "#cccccc"
+submit_btn_color = "#0fff0f"
 
-copy_bg = "#222222"
+copy_bg = "LightCyan4"
 
 result_box_color = "#cccccc"
+txt_font = "Bahnschrift SemiBold Condensed"
+style = "bold"
 
 class Window:
     def __init__(self, parent):
         self.frm1 = Frame(parent, bg=frame_1_color)
         self.frm2 = Frame(parent, bg=frame_2_color)
 
-        self.url_label  = Label(self.frm1, bd=0, bg=url_label_color, font=("Helvetica", size), text="Enter URL:")
+        self.url_label  = Label(self.frm1, bd=0, bg=url_label_color, font=(txt_font, size,style), text="Enter URL:")
         self.url_box    = Text(self.frm1, bd=0, bg=url_textbox_color, font=("Comic Sans MS", size), wrap=WORD, highlightthickness=0, padx=5, pady=5)
-        self.submit_btn = Button(self.frm1, bd=0, bg=submit_btn_color, command=self.send_url, fg="#ffffff", font=("Helvetica", size), text="Summarize", highlightthickness=0)
+        self.submit_btn = Button(self.frm1, bd=0, bg=submit_btn_color, command=self.send_url, fg="#000000", font=(txt_font, size,style), text="Summarize", highlightthickness=0)
 
-        self.title_label = Label(self.frm2, bd=0, bg=url_label_color, font=("Helvetica", size), text="Article Title            ")
-        self.title_res   = Text(self.frm2, bd=0, bg=result_box_color, font=("Helvetica", res_size), wrap=WORD, state=DISABLED)
-        self.title_copy = Button(self.frm2, bd=0, bg=copy_bg, font=("Helvetica", size_s), command=lambda: self.copy_to_clipboard(self.title_res), text="Copy", highlightthickness=0)
+        self.title_label = Label(self.frm2, bd=0, bg=url_label_color, font=(txt_font, size,style), text="Article Title            ")
+        self.title_res   = Text(self.frm2, bd=0, bg=result_box_color, font=(txt_font, res_size), wrap=WORD, state=DISABLED)
+        self.title_copy = Button(self.frm2, bd=0, bg=copy_bg, font=(txt_font, size_s,style), command=lambda: self.copy_to_clipboard(self.title_res), text="Copy", highlightthickness=0)
 
-        self.sum_label = Label(self.frm2, bd=0, bg=url_label_color, font=("Helvetica", size), text="Article Summary            ")
-        self.sum_res = Text(self.frm2, bd=0, bg=result_box_color, font=("Helvetica", res_size), wrap=WORD, state=DISABLED)
-        self.sum_copy = Button(self.frm2, bd=0, bg=copy_bg, font=("Helvetica", size_s), command=lambda: self.copy_to_clipboard(self.sum_res), text="Copy", highlightthickness=0)
+        self.sum_label = Label(self.frm2, bd=0, bg=url_label_color, font=(txt_font, size,style), text="Article Summary            ")
+        self.sum_res = Text(self.frm2, bd=0, bg=result_box_color, font=(txt_font, res_size), wrap=WORD, state=DISABLED)
+        self.sum_copy = Button(self.frm2, bd=0, bg=copy_bg, font=(txt_font, size_s,style), command=lambda: self.copy_to_clipboard(self.sum_res), text="Copy", highlightthickness=0)
 
         self.place_frames()
         
